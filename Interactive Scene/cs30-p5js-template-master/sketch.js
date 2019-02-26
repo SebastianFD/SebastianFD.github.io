@@ -12,5 +12,9 @@ function setup() {
 
 function draw() {
   background(220);
-  ellipse(mouseX, mouseY, 50, 50);
+  //let BlueCircle = ellipse(random(width), random(height), 50, 50);
+  //ellipse(mouseX, mouseY, 50, 50);
+for (let NumberOfCircle = 0; NumberOfCircle <= 5; NumberOfCircle++); {
+  NumberOfCicle*ellipse(random(width), random(height), 50, 50);
+  }
 }
