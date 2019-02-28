@@ -5,17 +5,20 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 
-i = 1
+let i = 0
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(220);
-  //let BlueCircle = ellipse(random(width), random(height), 50, 50);
-while (i <= 5) {
-  ellipse(random(width), random(height), 50, 50);
-  let i = i + 1
-  }
+  
+
+// *This is a random, 5 Circle placer*
+//while (i < 5) {
+  //fill(random(255), random(255), random(255))
+  //ellipse(random(width), random(height), 100, 100);
+  //i++;
+  //}
 }
 
 function draw() {
-  //ellipse(mouseX, mouseY, 50, 50);
+  background(220);
+  ellipse(mouseX, mouseY, 50, 50);
 }
