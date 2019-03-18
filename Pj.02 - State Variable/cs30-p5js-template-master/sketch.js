@@ -10,6 +10,7 @@ let blobBeginningSize; // This is the beginning size that the square would be
 let blobPositionX, blobPositionY; // This dictates where "the blob" will begin and fit around its size
 let blobWidth, blobHeight; // these are how big "the blob" actually is (located in the state picker)
 
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   blobBeginningSize = windowWidth / 20;
@@ -42,10 +43,13 @@ function keyTyped() {
 }
 
 function statePicker () {
+  if (state === 0){
+    state = 1
+  }
   if (state === 1) {
     blobWidth = blobBeginningSize;
     blobHeight = blobBeginningSize;
-    blobPositionX = 0;
+    blobPositionX = blobPositionX;
     blobPositionY = windowHeight - blobBeginningSize;
   }
   else if (state === 2) {
@@ -63,6 +67,6 @@ function statePicker () {
     blobPositionY =  windowHeight - (4*blobBeginningSize);
   }
   else if (state === 6) {
-    state = 1;
+    state = 0
   }
 }
