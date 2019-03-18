@@ -10,6 +10,14 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 }
 
-function draw() {
-  background(220);
+let hit = false;
+
+function draw(){
+	background(255);
+	ellipse(200,200,50,150);
+	point(mouseX,mouseY);
+
+	hit = collidePointEllipse(mouseX,mouseY,200,200,50,150)
+
+	print("colliding? " + hit);
 }

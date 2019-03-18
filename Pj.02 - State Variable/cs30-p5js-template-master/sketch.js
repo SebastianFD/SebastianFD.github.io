@@ -43,9 +43,6 @@ function keyTyped() {
 }
 
 function statePicker () {
-  if (state === 0){
-    state = 1
-  }
   if (state === 1) {
     blobWidth = blobBeginningSize;
     blobHeight = blobBeginningSize;
