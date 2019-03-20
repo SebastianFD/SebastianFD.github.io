@@ -5,29 +5,45 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 
-let stateTheBlob;
-let blobBeginningSize; // This is the beginning size that the square would be
-let blobPositionX, blobPositionY; // This dictates where "the blob" will begin and fit around its size
-let blobWidth, blobHeight; // these are how big "the blob" actually is (located in the state picker)
-let backgroundStage;
-let backgroundRed, backgroundGreen, backgroundBlue; // The Currect background changer
+
+// Variable list: //                  // Description for variables: //
+
+let stateTheBlob;                     // State that The Blob is in
+let blobBeginningSize;                // This is the beginning size that the square would be
+let blobPositionX, blobPositionY;     // This dictates where "the blob" will begin and fit around its size
+let blobWidth, blobHeight;            // these are how big "the blob" actually is (located in the state picker)
+let stateBackground;
+
+// let backgroundRed, backgroundGreen, backgroundBlue; // The Currect background changer (Not working)
+
+function preload() {
+  backgroundGrass = loadImage('assets/theBlobGrassBackground.jpg');
+  backgroundCity = loadImage('assets/theBlobCityBackground.jpg');
+  backgroundSpace = loadImage('assets/theBlobSpaceBackground.jpg');
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  blobBeginningSize = windowWidth / 20;
-  blobPositionY = windowHeight - blobBeginningSize
-  blobPositionX = 0;
-  stateTheBlob = 1;
-  blobHeight = blobBeginningSize;
-  blobWidth = blobBeginningSize;
-  stateBackground = 1
+  blobBeginningSize = windowWidth / 20;               // The tiles that The Blob is on
+  blobPositionY = windowHeight - blobBeginningSize;   // Just gets The blob to hug the bottom screen
+  blobPositionX = 0;                                  // The starting position
+  stateTheBlob = 1;                                   // State which The Blob is in
+  blobHeight = blobBeginningSize;                     // height of The Blob
+  blobWidth = blobBeginningSize;                      // Width of The Blob
+  stateBackground = 1;
 }
 
 function draw() {
-  background(backgroundRed, backgroundGreen, backgroundBlue);
-  rect(blobPositionX, blobPositionY, blobWidth, blobHeight);
+  statePickerBackground();
+  rect(blobPositionX, blobPositionY, blobWidth, blobHeight); // Just edits The Blob with variables (see variable list)
 }
 
+// Controls (For now): //
+// =A= Moves The Blob to the left
+// =D= Moves The Blob to the Right
+// =F= "Feeds" The Blob
+
+// logic for the controls: //
 function keyTyped() {
   if (blobPositionX >= 0 && blobPositionX <= windowWidth - blobBeginningSize) {
     if (key === 'd') {
@@ -43,43 +59,42 @@ function keyTyped() {
   }
 }
 
+// logic for the state The Blob is in: //
 function statePickerBlob() {
-  if (stateTheBlob === 1) { // The beginning size + base size of The Blob
+  if (stateTheBlob === 1) {                                // The beginning size + base size of The Blob
+    stateBackground = stateBackground + 1
     blobWidth = blobBeginningSize;
     blobHeight = blobBeginningSize;
     blobPositionX = blobPositionX;
     blobPositionY = windowHeight - blobBeginningSize;
   }
-  else if (stateTheBlob === 2) { // The blob grows to the right
+  else if (stateTheBlob === 2) {                           // The blob grows to the right
     blobWidth = blobWidth + blobBeginningSize;
   }
-  else if (stateTheBlob === 3) { // The blob grows upward
+  else if (stateTheBlob === 3) {                           // The blob grows upward
     blobHeight = blobHeight + blobBeginningSize;
-    blobPositionY = windowHeight - (2*blobBeginningSize); // need to add this because Y position is in top left corner
+    blobPositionY = windowHeight - (2*blobBeginningSize);  // need to add this because Y position is in top left corner
   }
-  else if (stateTheBlob === 4) { // Grows to the right again
+  else if (stateTheBlob === 4) {                           // Grows to the right again
     blobWidth = blobWidth + (2*blobBeginningSize);
   }
-  else if (stateTheBlob === 5) { // Grows upward again
+  else if (stateTheBlob === 5) {                           // Grows upward again
     blobHeight = blobHeight + (2*blobBeginningSize);
     blobPositionY =  windowHeight - (4*blobBeginningSize);
   }
-  else if (stateTheBlob === 6) { // Sets The blob at basically state 1 again
+  else if (stateTheBlob === 6) {                           // Sets The blob at basically state 1 again
     stateTheBlob = 0;
-    stateBackground = stateBackground + 1;
-    
   }
 }
 
 function statePickerBackground() {
   if (stateBackground === 1) {
-    backgroundblue = 255;
+    background(backgroundGrass);
   }
   else if (stateBackground === 2) {
-    backgroundGreen = 255;
+    background(backgroundCity);
   }
   else if (stateBackground === 3) {
-    backgroundRed = 255;
+    background(backgroundSpace);
   }
 }
-// 128 64 32 16 8 4 2 1
