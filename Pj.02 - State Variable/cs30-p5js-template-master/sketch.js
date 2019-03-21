@@ -13,6 +13,11 @@ let blobBeginningSize;                // This is the beginning size that the squ
 let blobPositionX, blobPositionY;     // This dictates where "the blob" will begin and fit around its size
 let blobWidth, blobHeight;            // these are how big "the blob" actually is (located in the state picker)
 let stateBackground;
+let foodBeginningSize;
+let foodPostionX, foodPositionY;
+let foodSize;
+let blobTouchesFood;
+
 
 // let backgroundRed, backgroundGreen, backgroundBlue; // The Currect background changer (Not working)
 
@@ -24,18 +29,28 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  // Stating The Blobs variable //
   blobBeginningSize = windowWidth / 20;               // The tiles that The Blob is on
   blobPositionY = windowHeight - blobBeginningSize;   // Just gets The blob to hug the bottom screen
-  blobPositionX = 0;                                  // The starting position
+  blobPositionX = blobBeginningSize * 5;              // The starting position
   stateTheBlob = 1;                                   // State which The Blob is in
   blobHeight = blobBeginningSize;                     // height of The Blob
   blobWidth = blobBeginningSize;                      // Width of The Blob
-  stateBackground = 1;
+  stateBackground = 1;                                // The beginning for the background
+  // Stating The Blobs "Food" variable //
+  foodBeginningSize = windowWidth / 20;
+  foodPositionY = windowHeight - foodBeginningSize / 2
+  foodPostionX = foodBeginningSize *2
+  foodSize = foodBeginningSize
+  // Collison //
+  blobTouchesFood = collidePointEllipse(mouseX,mouseY,200,200,50,150);
 }
 
 function draw() {
   statePickerBackground();
   rect(blobPositionX, blobPositionY, blobWidth, blobHeight); // Just edits The Blob with variables (see variable list)
+  foodForBlob()
+  blob
 }
 
 // Controls (For now): //
@@ -53,6 +68,10 @@ function keyTyped() {
       blobPositionX = blobPositionX - blobBeginningSize;
     }
     else if (key ==='f') {
+      stateTheBlob = stateTheBlob + 1;
+      statePickerBlob();
+    }
+    else if (blobTouchesFood = true) {
       stateTheBlob = stateTheBlob + 1;
       statePickerBlob();
     }
@@ -87,6 +106,7 @@ function statePickerBlob() {
   }
 }
 
+// logic for the state the background is in: //
 function statePickerBackground() {
   if (stateBackground === 1) {
     background(backgroundGrass);
@@ -97,4 +117,8 @@ function statePickerBackground() {
   else if (stateBackground === 3) {
     background(backgroundSpace);
   }
+}
+
+function foodForBlob() {
+  ellipse(foodBeginningSize, foodPositionY, foodSize)
 }
