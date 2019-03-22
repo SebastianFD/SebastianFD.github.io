@@ -7,17 +7,20 @@
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(200, 200);
 }
 
-let hit = false;
-
-function draw(){
+var hit = false;
+function draw() {
 	background(255);
-	ellipse(200,200,50,150);
-	point(mouseX,mouseY);
+	ellipse(100,100,1,1); //change to 10,10px size for buffer example
+	ellipse(mouseX,mouseY,1,1); //change to 10,10px size for buffer example
 
-	hit = collidePointEllipse(mouseX,mouseY,200,200,50,150)
+	//no buffer zone, most standard example
+	hit = collidePointPoint(100,100,mouseX,mouseY)
+
+	//buffer of 10 px
+	//hit = collidePointPoint(100,100,mouseX,mouseY,10)
 
 	print("colliding? " + hit);
 }

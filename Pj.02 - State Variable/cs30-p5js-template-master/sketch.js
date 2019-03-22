@@ -43,14 +43,13 @@ function setup() {
   foodPostionX = foodBeginningSize *2
   foodSize = foodBeginningSize
   // Collison //
-  blobTouchesFood = collidePointEllipse(mouseX,mouseY,200,200,50,150);
+  blobTouchesFood = false;
 }
 
 function draw() {
   statePickerBackground();
   rect(blobPositionX, blobPositionY, blobWidth, blobHeight); // Just edits The Blob with variables (see variable list)
   foodForBlob()
-  blob
 }
 
 // Controls (For now): //
