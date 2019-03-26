@@ -1,9 +1,9 @@
 // The Blob
 // Sebastian Favel-Delorme
-// Date
+// Date March 26th, 2019
 //
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// - None
 
 
 // Variable list: //                  // Description for variables: //
@@ -12,11 +12,11 @@ let stateTheBlob;                     // State that The Blob is in
 let blobBeginningSize;                // This is the beginning size that the square would be
 let blobPositionX, blobPositionY;     // This dictates where "the blob" will begin and fit around its size
 let blobWidth, blobHeight;            // these are how big "the blob" actually is (located in the state picker)
-let stateBackground;
-let foodBeginningSize;
-let foodPositionX, foodPositionY;
-let foodSize;
-let blobTouchesFood;
+let stateBackground;                  // The state the background is in
+let foodBeginningSize;                // 
+let foodPositionX, foodPositionY;     //
+let foodSize;                         //
+let blobTouchesFood;                  // 
 
 function preload() {
   backgroundGrass = loadImage('assets/theBlobGrassBackground.jpg');
@@ -36,9 +36,9 @@ function setup() {
   stateBackground = 1;                                    // The beginning for the background
   // Stating The Blobs "Food" variable //
   foodBeginningSize = windowWidth / 20;                   // Just like the blobBeginningSize
-  foodPositionY = windowHeight - foodBeginningSize / 2;
-  foodPositionX = random(0, width);
-  foodSize = foodBeginningSize;
+  foodPositionY = windowHeight - foodBeginningSize / 2;   // Same logic for the blob
+  foodPositionX = random(0, width);                       // Sets a random position for the food
+  foodSize = foodBeginningSize;                           // Sets the foods size
   // Collison //
   blobTouchesFood = false;
 }
@@ -125,4 +125,6 @@ function foodForBlob() {
   else if (blobTouchesFood === false) {
     ellipse(foodPositionX, foodPositionY, foodSize)
   }
+
+  // !!! MAKE SURE TO FIX FOOD SPAWINNING IN THE BLOB !!! //
 }
