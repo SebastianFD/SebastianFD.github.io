@@ -30,7 +30,7 @@ function minuteTickMarks() {
   strokeCap(SQUARE);
   strokeWeight(3);
 
-  for(let minuteMark = 0; minuteMark < 60; hourMark++){
+  for(let minuteMark = 0; minuteMark < 60; minuteMark++){
     line(width * 0.34, 0, width * 0.42, 0)
     rotate(360 / 60);
   }
