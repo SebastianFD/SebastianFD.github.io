@@ -13,10 +13,10 @@ let blobBeginningSize;                // This is the beginning size that the squ
 let blobPositionX, blobPositionY;     // This dictates where "the blob" will begin and fit around its size
 let blobWidth, blobHeight;            // these are how big "the blob" actually is (located in the state picker)
 let stateBackground;                  // The state the background is in
-let foodBeginningSize;                // 
-let foodPositionX, foodPositionY;     //
-let foodSize;                         //
-let blobTouchesFood;                  // 
+let foodBeginningSize;                // Food size
+let foodPositionX, foodPositionY;     // Where the food for the blob is at
+let foodSize;                         // Yep
+let blobTouchesFood;                  // For when collision happens
 
 function preload() {
   backgroundGrass = loadImage('assets/theBlobGrassBackground.jpg');
@@ -48,7 +48,7 @@ function draw() {
   rect(blobPositionX, blobPositionY, blobWidth, blobHeight); // Just edits The Blob with variables (see variable list)
   blobTouchesFood = collidePointRect(foodPositionX, foodPositionY, blobPositionX, blobPositionY, blobWidth, blobHeight)
   // ^ That's the code for the collision of The Blob and Food
-  print("colliding?" + blobTouchesFood);  // For testing
+  print("colliding?" + blobTouchesFood); // For testing
   foodForBlob()
 }
 
