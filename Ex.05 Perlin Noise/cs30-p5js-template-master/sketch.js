@@ -2,29 +2,49 @@
 
 let time;
 let rectWidth;
-let myRectangle;
+let numberOfRects;
 let rects = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  let numberOfRects = width;
-
+  numberOfRects = width;
   time = 0;
   rectWidth = width / numberOfRects;
   generateInitialTerrain();
-
 }
 
 function draw() {
   background(220);
   fill(0);
-  for(let i = 0; i < numberOfRects; i ++) {
+
+  // remove leftmost rectangle
+  rects.shift();
+
+  //add rectangle on right
+  let rectHeight = noise(time) * height;
+    let myRectangle = {
+      height: rectHeight,
+      width: rectWidth,
+      x: width - rectWidth,
+      y: height - rectHeight,
+    };
+    rects.push(myRectangle);
+
+    // move along the perlin noise x-axis
+    time += 0.001;
+  
+  
+
+  // display terrain
+  for (let i = 0; i < rects.length; i ++) {
+    //move rect to the left
+    rects[i].x -= rectWidth;
     rect(rects[i].x, rects[i].y, rects[i].width, rects[i].height);
   }
 }
 
 function generateInitialTerrain() {
-  for (let i = 0; i < numberOfRects; i ++)
+  for (let i = 0; i < numberOfRects; i++) {
     let rectHeight = noise(time) * height;
     let myRectangle = {
       height: rectHeight,
@@ -33,5 +53,9 @@ function generateInitialTerrain() {
       y: height - rectHeight,
     };
     rects.push(myRectangle);
-    time += 0.01;
+
+    // move along the perlin noise x-axis
+    time += 0.001;
+  }
+  
 }
