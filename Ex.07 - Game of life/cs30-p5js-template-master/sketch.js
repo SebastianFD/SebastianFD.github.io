@@ -1,8 +1,11 @@
 // Grid Demo
+// Dan Schellenberg
+// April 1, 2019
 
 let gridSize = 50;
 let grid;
 let cellSize;
+let autoPlay;
 
 function setup() {
   if (windowWidth > windowHeight) {
@@ -107,7 +110,7 @@ function update() {
 
 function keyPressed() {
   if (key === " ") {
-    window.cleanInterval(autoPlay);
+    window.clearInterval(autoPlay);
     update();
   }
   if (key === "c") {
