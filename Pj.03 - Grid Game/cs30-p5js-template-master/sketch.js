@@ -5,25 +5,26 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 
-let gridSize = 50;
 let grid;
+let gridSize = 25;
 let cellSize;
-let autoPlay;
+let centerScreen = round(gridSize/2);
 
 function setup() {
-  if (windowWidth > windowHeight) {
-    createCanvas(windowHeight, windowHeight);
-  }
-  else {
-    createCanvas(windowWidth, windowWidth);
-  }
-  
-  grid = createRandom2DArray(gridSize, gridSize);
-  cellSize = width/gridSize;
+
+if (windowHeight > windowWidth) {
+  createCanvas(windowWidth, windowWidth)
+}
+else {
+  createCanvas(windowHeight, windowHeight)
+}
+
+grid = createRandom2DArray(gridSize, gridSize);
+cellSize = width/gridSize;
 }
 
 function draw() {
-  background(255);
+  background(0);
   displayGrid();
 }
 
@@ -41,27 +42,18 @@ function displayGrid() {
   }
 }
 
-
-function create2DArray(cols, rows) {
-  let emptyArray = [];
-  for (let i = 0; i < rows; i++) {
-    emptyArray.push([]);
-    for (let j = 0; j < cols; j++) {
-      emptyArray[i].push(0);
-    }
-  }
-  return emptyArray;
-}
-
 function createRandom2DArray(cols, rows) {
   let emptyArray = [];
   for (let i = 0; i < rows; i++) {
     emptyArray.push([]);
     for (let j = 0; j < cols; j++) {
+      if (random(100) < 50) {
+        emptyArray[i].push(0);
+      }
+      else {
         emptyArray[i].push(0);
       }
     }
   }
   return emptyArray;
 }
-
