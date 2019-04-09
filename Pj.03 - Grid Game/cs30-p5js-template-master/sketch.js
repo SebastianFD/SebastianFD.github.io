@@ -8,7 +8,7 @@
 let grid;
 let gridSize = 25;
 let cellSize;
-let centerScreen = round(gridSize/2);
+let centerScreen = round(gridSize / 2);
 
 function setup() {
 
@@ -57,3 +57,4 @@ function createRandom2DArray(cols, rows) {
   }
   return emptyArray;
 }
+
