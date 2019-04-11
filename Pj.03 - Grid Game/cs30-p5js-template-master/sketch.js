@@ -10,7 +10,9 @@ let grid;
 let gridSize = 25;
 let cellSize;
 let centerScreen;
+let zombie;
 let zombieX, zombieY;
+let human;
 let humanBobX, humanBobY;
 
 
@@ -21,6 +23,8 @@ if (windowHeight > windowWidth) {
 else {
   createCanvas(windowHeight, windowHeight)
 }
+
+
 grid = createRandom2DArray(gridSize, gridSize);
 cellSize = width/gridSize;
 zombieX = 1;
@@ -31,8 +35,8 @@ centerScreen = round(gridSize / 2);
 function draw() {
   background(0);
   displayGrid();
-  humanBob();
   zombie();
+  humanBob();
 }
 
 function displayGrid() {
@@ -68,9 +72,6 @@ function createRandom2DArray(cols, rows) {
 function zombie() {
   fill(0);
   rect(zombieX*cellSize, zombieY*cellSize, cellSize, cellSize);
-  if (gridSize === gridSize + 1) {
-
-  }
 }
 
 function keyTyped() {
@@ -90,17 +91,5 @@ function keyTyped() {
 
 function humanBob() {
   fill(255);
-  rect(centerScreen*cellSize, centerScreen*cellSize, cellSize, cellSize);
-  if (zombieX === humanBobX && zombieY === humanBobY) {
-    humanToZombie()
-  }
-  else {
-    if (zombie) {
-
-    }
-  }
-}
-
-function humanToZombie() {
-  
+  rect(20*cellSize, 20*cellSize, cellSize, cellSize);
 }
