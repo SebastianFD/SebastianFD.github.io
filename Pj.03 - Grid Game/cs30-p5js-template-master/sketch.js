@@ -92,6 +92,15 @@ function humanBob() {
   fill(255);
   rect(centerScreen*cellSize, centerScreen*cellSize, cellSize, cellSize);
   if (zombieX === humanBobX && zombieY === humanBobY) {
-
+    humanToZombie()
   }
+  else {
+    if (zombie) {
+
+    }
+  }
+}
+
+function humanToZombie() {
+  
 }
