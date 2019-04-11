@@ -91,5 +91,13 @@ function keyTyped() {
 
 function humanBob() {
   fill(255);
+<<<<<<< HEAD
   rect(20*cellSize, 20*cellSize, cellSize, cellSize);
 }
+=======
+  rect(centerScreen*cellSize, centerScreen*cellSize, cellSize, cellSize);
+  if (zombieX === humanBobX && zombieY === humanBobY) {
+
+  }
+}
+>>>>>>> parent of 1c970ac... Pj.03 Zombie work
