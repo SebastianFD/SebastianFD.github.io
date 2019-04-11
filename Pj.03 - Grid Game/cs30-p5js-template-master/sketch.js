@@ -10,9 +10,7 @@ let grid;
 let gridSize = 25;
 let cellSize;
 let centerScreen;
-let zombie;
 let zombieX, zombieY;
-let human;
 let humanBobX, humanBobY;
 
 
@@ -36,7 +34,6 @@ function draw() {
   background(0);
   displayGrid();
   zombie();
-  humanBob();
 }
 
 function displayGrid() {
@@ -88,16 +85,3 @@ function keyTyped() {
     zombieY = zombieY - 1
   }
 }
-
-function humanBob() {
-  fill(255);
-<<<<<<< HEAD
-  rect(20*cellSize, 20*cellSize, cellSize, cellSize);
-}
-=======
-  rect(centerScreen*cellSize, centerScreen*cellSize, cellSize, cellSize);
-  if (zombieX === humanBobX && zombieY === humanBobY) {
-
-  }
-}
->>>>>>> parent of 1c970ac... Pj.03 Zombie work
