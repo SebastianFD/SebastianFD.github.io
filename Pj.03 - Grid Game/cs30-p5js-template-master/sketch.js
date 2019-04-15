@@ -7,7 +7,7 @@
 
 // Variables //
 let grid;
-let gridSize = 25;
+let gridSize = 10;
 let cellSize;
 let centerScreen;
 let zombieX, zombieY;
@@ -77,7 +77,7 @@ function zombiePlayer() {
 function npcHuman() {
   if (zombieX === humanX && zombieY === humanY) {
     fill(0)
-    rect(humanX*cellSize, humanY*cellSize, cellSize, cellSize)
+    rect(humanX*cellSize, humanY*cellSize, cellSize, cellSize);
   }
   else {
     fill(225);
