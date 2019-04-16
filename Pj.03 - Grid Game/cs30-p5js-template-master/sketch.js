@@ -27,8 +27,8 @@ grid = createRandom2DArray(gridSize, gridSize);
 cellSize = width/gridSize;
 zombieX = 1;
 zombieY = 1;
-humanX = round(random(gridSize))
-humanY = round(random(gridSize))
+humanX = round(random(gridSize));
+humanY = round(random(gridSize));
 centerScreen = round(gridSize / 2);
 }
 
@@ -75,13 +75,16 @@ function zombiePlayer() {
 }
 
 function npcHuman() {
+  // let zombieNumber = [];
+  // for (i=0; i < 2; i++) {
+    // zombieNumber.push([]);
   if (zombieX === humanX && zombieY === humanY) {
-    fill(0)
-    rect(humanX*cellSize, humanY*cellSize, cellSize, cellSize);
+    fill('green')
   }
   else {
-    fill(225);
+    fill(255)
     rect(humanX*cellSize, humanY*cellSize, cellSize, cellSize);
+    // }
   }
 }
 
