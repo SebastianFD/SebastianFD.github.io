@@ -7,12 +7,12 @@
 
 // Variables //
 let grid;
-let gridSize = 10;
+let gridSize;
 let cellSize;
 let centerScreen;
 let zombieX, zombieY;
 let zombieColor;
-let zombieBite;
+let humanBit;
 let humanX, humanY;
 
 
@@ -24,13 +24,13 @@ else {
   createCanvas(windowHeight, windowHeight)
 }
 
-
+gridSize = 10
 grid = createRandom2DArray(gridSize, gridSize);
 cellSize = width/gridSize;
-zombieX = 1;
-zombieY = 1;
+zombieX = round(gridSize/2)-1;
+zombieY = round(gridSize/2)-1;
 zombieColor = 'green';
-zombieBite = false;
+humanBit = 0;
 humanX = round(random(gridSize));
 humanY = round(random(gridSize));
 centerScreen = round(gridSize / 2);
@@ -79,14 +79,15 @@ function zombiePlayer() {
 }
 
 function npcHuman() {
-  if (zombieX === humanX && zombieY === humanY) {
-    zombieBite = true;
-  }
-  if (zombieBite = true) {
-    fill(zombieColor)
-  }
-  else if (zombieBite = false) {
+  if (humanBit === 0) {
     fill(225)
+    if (zombieX === humanX && zombieY === humanY) {
+      humanBit += 1;
+    }
+  }
+  else if (humanBit === 1) {
+    fill(zombieColor)
+    humanTurned()
   }
   rect(humanX*cellSize, humanY*cellSize, cellSize, cellSize);
 }
@@ -104,4 +105,8 @@ function keyTyped() {
   else if (key === 'w') {
     zombieY = zombieY - 1
   }
+}
+
+function humanTurned() {
+
 }
