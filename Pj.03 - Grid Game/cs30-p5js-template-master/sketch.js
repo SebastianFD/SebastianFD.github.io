@@ -42,7 +42,7 @@ grid = createRandom2DArray(gridSize, gridSize);
 cellSize = width/gridSize;
 
 // Zombie
-zombieX = round(gridSize/2)-1;
+zombieX = 9// round(gridSize/2)-1;
 zombieY = round(gridSize/2)-1;
 zombieColor = 'green';
 
@@ -126,9 +126,11 @@ function npcHuman() {
     if (zombieX === humanX && zombieY === humanY) {
       humanBit += 1;
     }
-    else if (zombieX < humanX + 3) {
-      humanX
-
+    else if (humanX < zombieX + 2) {
+      humanX += 1;
+    }
+    else if (humanX > zombieX - 2) {
+      humanX -= 1;
     }
   }
   else if (humanBit === 1) {
