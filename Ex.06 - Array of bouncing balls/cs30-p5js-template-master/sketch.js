@@ -14,8 +14,8 @@ function setup() {
       radius: random(10, 50),
       color: color(random(255), random(255), random(255), random(255)),
     };
+    ballArray.push(newBall);
   }
-  ballArray.push(newBall);
 }
 
 function draw() {
