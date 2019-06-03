@@ -98,12 +98,14 @@ function createRandom2DArray(cols, rows) {
 }
 
 // Player //
+
 function zombiePlayer() {
   fill(0);
   rect(zombieX*cellSize, zombieY*cellSize, cellSize, cellSize);
   
 }
 
+// Move with WASD //
 function keyTyped() {
   if (key === 'd') {
     zombieX = zombieX + 1
@@ -126,12 +128,13 @@ function npcHuman() {
     if (zombieX === humanX && zombieY === humanY) {
       humanBit += 1;
     }
-    else if (humanX < zombieX + 2) {
-      humanX += 1;
-    }
-    else if (humanX > zombieX - 2) {
-      humanX -= 1;
-    }
+// "AI" //
+    // else if (humanX < zombieX + 2) {
+    //   humanX += 1;
+    // }
+    // else if (humanX > zombieX - 2) {
+    //   humanX -= 1;
+    // }
   }
   else if (humanBit === 1) {
     fill(zombieColor)
