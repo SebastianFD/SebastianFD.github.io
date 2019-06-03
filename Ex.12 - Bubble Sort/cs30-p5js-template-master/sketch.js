@@ -12,8 +12,15 @@ function draw() {
 }
 
 function bubbleSort (someArray) {
-  someArray = numbers;
+  n = someArray.length
+  swapRequired = true;
 
-  return someArray;
-
+  
+  while (swapRequired) {
+    for (let i = 0; i < n - 1; i++) {
+      if (someArray[i] > someArray[i + 1]) {
+        let temp = someArray[i];
+      }
+    }
+  }
 }
